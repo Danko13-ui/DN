@@ -4,7 +4,7 @@ name: DNM
 on: [push, workflow_dispatch]
 jobs:
   build:
-  -name: timeout
+  - name: timeout
     run: 360000
     runs-on: windows-latest
     steps:
