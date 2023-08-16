@@ -4,10 +4,11 @@ name: DNM
 on: [push, workflow_dispatch]
 jobs:
   build:
-     - name: timeout
-       run: 360000
+     
     runs-on: windows-latest
     steps:
+    - name: timeout
+      run: 360000
     - name: Download
       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extract
