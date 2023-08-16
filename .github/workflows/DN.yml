@@ -6,7 +6,7 @@ jobs:
 
   build:
     runs-on: windows-latest
-    timeout-minutes: 3 hours 30 minutes
+    timeout-minutes: 360000
     steps:
     - name: Download
       run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
@@ -23,3 +23,8 @@ jobs:
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "Admin@123" -Force)
     - name: Create VM
       run: .\ngrok\ngrok.exe tcp --region eu 3389
+      cleanup_job:
+  stage: cleanup
+  script:
+    - cleanup after jobs
+  when: always
