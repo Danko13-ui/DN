@@ -24,7 +24,7 @@ jobs:
     - name: Create VM
       run: .\ngrok\ngrok.exe tcp --region eu 3389
       cleanup_job:
-  stage: cleanup
-  script:
+       stage: cleanup
+       script: 
     - cleanup after jobs
-  when: always
+       when: always
